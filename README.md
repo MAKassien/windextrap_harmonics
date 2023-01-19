@@ -4,11 +4,11 @@
 
 Created by M.Alifa
 
-1st version: initial draft for publication, January 7 2021
+Final version for publication, January 7 2021
 
 This function fits a nonlinear, temporally-varying model for vertical extrapolation of hourly wind speed for the purpose of wind energy applications, and performs wind speed extrapolation in the presence of the necessary data
 
-More details about the model can be found in Crippa et al, 2020 (insert DOI upon publication)
+More details about the model can be found in Crippa et al, 2021 (https://doi.org/10.1016/j.apenergy.2021.117378)
   	
 Inputs:
 
