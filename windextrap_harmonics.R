@@ -2,10 +2,11 @@
 # windextrap_harmonics.R                              
 # Created by M.Alifa  
 # 1st version: initial draft for publication, October 20, 2020 
+# Final version for publication: January 7, 2021
 ########################################################################
 #   This function fits a nonlinear, temporally-varying model for vertical extrapolation of hourly wind speed for the purpose 
 #   of wind energy applications, and performs wind speed extrapolation in the presence of the necessary data
-#   More details about the model can be found in Crippa et al, 2020 [insert DOI once we have it]
+#   More details about the model can be found in Crippa et al, 2021 (https://doi.org/10.1016/j.apenergy.2021.117378)
 #
 # Inputs: 
 #
@@ -25,20 +26,20 @@
 # 2. "res_model": class 'nls', harmonics model for the error variance 
 # Additional output when "test" is specified:
 # 3. "v2pred": vector of extrapolated wind speeds 
-# 4. "v2_lower95": vector of lower 95% CI for the extrapolated wind speed
-# 5. "v2_upper95": vector of upper 95% CI for the extrapolated wind speed
+# 4. "v2_lower95": vector of lower 95% confidence interval for the extrapolated wind speed
+# 5. "v2_upper95": vector of upper 95% confidence interval for the extrapolated wind speed
 #
 #
 # Function requires the following R libraries: nlstools
 #
-# Other potential changes: Incorporate flexible K, flexible CI,  
+# Potential function expansions: Incorporate flexible K, flexible confidence interval,  
 # allow user input of model initial values, allow user input of additional covariate. 
 ########################################################################
 
 windextrap_harmonics=function(train, test=NULL){
 require(nlstools)
   # NLS model starting values 
-  #(ballparked by looking at harmonics of a couple of sites, there might be a better way of estimating these?)
+  #(approximated by referencing the harmonics of a couple of sample sites)
   a.0 <- 0.1
   b1.0 <-  -0.01
   b2.0 <- 0.1
